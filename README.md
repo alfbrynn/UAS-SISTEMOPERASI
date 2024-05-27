@@ -1,4 +1,14 @@
-### Fitur Program Bash VArchiver
+### Program Bash 
+
+#### Data Diri
+
+| Nama           | Muhammad Alif Febriansyah             |
+| NIM            | 2341720025                            |
+| Kelas          | 1B                                    |
+| Dosen Pengampu | Erfan Rohadi, ST., M.Eng., Ph.D.      |
+|                | Mohammad Faried Rahmat, S.ST., M.Tr.T |                  |
+
+### Fitur Program Bash
 
 #### 1. Manajemen File
 
