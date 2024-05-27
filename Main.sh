@@ -6,8 +6,11 @@ source manajemen_Zarchive.sh
 source fitur_lainnya.sh
 
 # Menu utama
+# memulai loop tak terbatas yang membuat menu utama muncul kembali
+# setelah setiap operasi selesai sampai user memilih opsi keluar
 while true; do
     clear
+    # perintah untuk membersihkan layar terminal
     echo "------------------------------"
     echo "Selamat Datang di di Program saya"
     echo "------------------------------"
@@ -18,16 +21,18 @@ while true; do
     echo "4. Keluar"
     echo "------------------------------"
     read -p "Masukkan Pilihan: " main_choice
-
+    # meminta user untuk memlih salah satu opsi di menu utama
+    
     case $main_choice in
+    # menentukan tindakan berdasarkan pilihan user
         1)
             manajemen_file
             ;;
         2)
-            manajemen_arsip
+            manajemen_Zarchive
             ;;
         3)
-            utilitas_lainnya
+            fitur_lainnya
             ;;
         4)
             echo "Terima kasih telah menggunakan program saya, semoga harimu menyenangkan :)"
@@ -39,4 +44,4 @@ while true; do
             ;;
     esac
 done
-new fix code Manajemen_Zarchive.sh fitur_lainnya.sh manajemen_file.sh
+# new fix code Manajemen_Zarchive.sh fitur_lainnya.sh manajemen_file.sh

@@ -1,5 +1,6 @@
 #!/bin/sh
 
+# deklarasi fungsi 
 function fitur_lainnya {
     while true; do
         clear
@@ -16,8 +17,8 @@ function fitur_lainnya {
         case $util_choice in
             1)
                 echo "Cek koneksi internet..."
-                TEST_IP="8.8.8.8"
-                ping -c 1 -W 5 $TEST_IP > /dev/null 2>&1
+                TEST_IP="8.8.8.8" # menggunakan dns google untuk test koneksi internet
+                ping -c 1 -W 5 $TEST_IP > /dev/null 2>&1 # mengirim satu paket ping ke alamat IP, output paket di aluhkan ke dev/null/ sehingga tidak ditampilkan ping nya
                 if [ $? -eq 0 ]; then
                     echo "Jaringan internet terhubung."
                 else
@@ -27,12 +28,12 @@ function fitur_lainnya {
                 ;;
             2)
                 echo "Waktu saat ini:"
-                date
+                date # perintah untuk menampilkan tanggal dan waktu saat ini
                 # read -p "Tekan enter untuk melanjutkan"
                 ;;
             3)
                 echo "Total penggunaan disk di direktori saat ini:"
-                du -sh ./*
+                du -sh ./* # -sh untuk menampilkan penggunakan disk secara singkat untuk setiap item pada dir saat ini
                 # read -p "Tekan enter untuk melanjutkan"
                 ;;
             4)

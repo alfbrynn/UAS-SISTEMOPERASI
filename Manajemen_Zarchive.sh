@@ -19,12 +19,12 @@ function manajemen_Zarchive {
                     read -p "Masukkan nama file yang akan dikompres: " filename
                     read -p "Masukkan nama arsip (tanpa ekstensi): " archive
                     if [[ -f "$filename" ]]; then
-                        tar -czf "${archive}.tar.gz" "$filename"
+                        tar -czf "${archive}.tar.gz" "$filename" # mengompres file menjadi ekstensi .tar.gz
                         echo "File telah dikompres!"
                     else
                         echo "File tidak ditemukan!"
                     fi
-                    read -p "Apakah Anda ingin mengompres file lain? (y/n): " cont
+                    read -p "Apakah Anda ingin mengompres file lain? (y/t): " cont
                     [[ "$cont" != "y" ]] && break
                 done
                 ;;
@@ -33,12 +33,12 @@ function manajemen_Zarchive {
                     read -p "Masukkan nama direktori yang akan dikompres: " dirname
                     read -p "Masukkan nama arsip (tanpa ekstensi): " archive
                     if [[ -d "$dirname" ]]; then
-                        tar -czf "${archive}.tar.gz" "$dirname"
+                        tar -czf "${archive}.tar.gz" "$dirname" # mengompres direktori menjadi ekstensi .tar.gz
                         echo "Direktori telah dikompres!"
                     else
                         echo "Direktori tidak ditemukan!"
                     fi
-                    read -p "Apakah Anda ingin mengompres direktori lain? (y/n): " cont
+                    read -p "Apakah Anda ingin mengompres direktori lain? (y/t): " cont
                     [[ "$cont" != "y" ]] && break
                 done
                 ;;
@@ -48,19 +48,19 @@ function manajemen_Zarchive {
                     read -p "Masukkan direktori tujuan ekstraksi: " targetdir
                     if [[ -f "$archive" ]]; then
                         mkdir -p "$targetdir"
-                        tar -xzf "$archive" -C "$targetdir"
+                        tar -xzf "$archive" -C "$targetdir" # perintah untuk mengekstrak file arsip ke dalam direktori tujuan yang telah ditentukan
                         echo "Arsip telah diekstrak ke $targetdir!"
-                        extracted_files=$(tar -tzf "$archive")
-                        for file in $extracted_files; do
+                        extracted_files=$(tar -tzf "$archive") # perintah ini untuk mendapatkan daftar semua file yang ada dalam arsip
+                        for file in $extracted_files; do # untuk memeriksa setiap file yang di ekstrak
                             if [[ "$file" == *.sh ]]; then
-                                chmod +x "$targetdir/$file"
+                                chmod +x "$targetdir/$file" # perintah untuk mengubah izin agar file dapat di eksekusi
                                 echo "File shell script $file telah diatur agar dapat dieksekusi."
                             fi
                         done
                     else
                         echo "Arsip tidak ditemukan!"
                     fi
-                    read -p "Apakah Anda ingin mengekstrak file lain? (y/n): " cont
+                    read -p "Apakah Anda ingin mengekstrak file lain? (y/t): " cont
                     [[ "$cont" != "y" ]] && break
                 done
                 ;;
